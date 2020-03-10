@@ -1,7 +1,14 @@
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashMap;
+/**
+ * @author Andres Say Agosto 19705
+ * @author Cesar Vinicio Rodas Alvarado
+ * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
+ */
 public class hashMap implements Map{
+	HashMap<String, String> cardsDesc = new HashMap<String, String>();
 
 	@Override
 	public void clear() {

@@ -1,8 +1,13 @@
+/**
+ * @author Andres Say Agosto 19705
+ * @author Cesar Vinicio Rodas Alvarado
+ * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
+ */
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-
-public class LinkedHashMap implements Map{
+public class LinkedHashMap extends hashMap implements Map{
+	LinkedHashMap lhm = new LinkedHashMap(); 
 
 	@Override
 	public void clear() {

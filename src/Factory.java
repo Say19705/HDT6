@@ -1,3 +1,8 @@
+/**
+ * @author Andres Say Agosto 19705
+ * @author Cesar Vinicio Rodas Alvarado
+ * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
+ */
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
