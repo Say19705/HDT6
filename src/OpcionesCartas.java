@@ -7,14 +7,23 @@ import java.util.Map;
 
 public class OpcionesCartas {
 	
-	//Muestra la carta seleccionada
+	/**
+	 * 
+	 * @param mapa
+	 * @param carta
+	 * @return la carta seleccionada
+	 */
 	public String mostrarCarta(Map<String,String[]> mapa, String[] carta){
 		String[] c = mapa.get(carta[0]);
         if (c==null) return "Nombre incorrecto, intente de nuevo";
         else return "La carta-> "+ c[0] + "es de tipo-> " + c[1];
     }
 	
-	//muestra todas las cartas
+	/**
+	 * @param aux
+	 * @param al
+	 * @return muestra todas las cartas
+	 */
 	public String mostrarCartas(ArrayList<String[]> aux, ArrayList<String[]> al){
         String result = "";
         int i = 0;
@@ -28,7 +37,11 @@ public class OpcionesCartas {
         return result;
     }
 	
-	//Ordena las cartas
+	/**
+	 * 
+	 * @param cartas
+	 * @return las cartas ordenadas
+	 */
 	public ArrayList<String[]> sort_selecction(ArrayList<String[]> cartas){
         int n = cartas.size();
         for (int i = 0; i < n-1; i++)
@@ -43,7 +56,11 @@ public class OpcionesCartas {
         return cartas;
     }
 	
-	//variantes de las cartas
+	/**
+	 * 
+	 * @param cartas
+	 * @return variantes de las cartas
+	 */
 	public String variantes(ArrayList<String[]> cartas) {
         String result ="";
         for (String[] carta: cartas) {
@@ -52,7 +69,10 @@ public class OpcionesCartas {
         return result;
     }
 	
-	//obtener los elementos del Map
+	/**
+	 * @param map
+	 * @return obtener los elementos del map
+	 */
 	public ArrayList<String[]> elementosMap (Map<String,String[]> map){
         ArrayList<String[]> elementos = new ArrayList<String[]>();
         map.forEach((K,V)->elementos.add(V));

@@ -3,7 +3,11 @@
  * @author Cesar Vinicio Rodas Alvarado 16776
  * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
  */
-//A
+
+
+/**
+ * @import importar las colecciones que se utilizaran
+ */
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,7 +28,11 @@ import java.util.Set;
 public class Main {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws Exception{
+		//Bandera
 		boolean seguir = true;
+		/**
+		 * Inicializar atributos
+		 */
 		Map<String,String[]> theMap = null; 
         OpcionesCartas ops = new OpcionesCartas();
 		ArrayList<String[]> cartas =new ArrayList<String[]>();
@@ -46,6 +54,9 @@ public class Main {
 			Scanner teclado2 = new Scanner (System.in); //teclado para String
 			
 			//Selección de implementación
+			/**
+			 * funcionalidad del factory 
+			 */
 			while(seguir) {
 				System.out.println("¿Que implementacion desea utilizar? \n1. HashMap \n2.TreeMap \n3.LinkedHashMap ");
 				try {
@@ -65,7 +76,9 @@ public class Main {
 				}
 			}
 			
-			//carga de cartas
+			/**
+			 * Cargar las cartas del archivo
+			 */
 			seguir = true;
 			while (seguir) {
 	            try {
@@ -94,7 +107,10 @@ public class Main {
 	                System.out.println("Error al leer el archivo");
 	            }
 	        }
-			//Opciones con las cartas
+			/**
+			 * Menu para interactuar con el usuario
+			 * 
+			 */
 			seguir = true;
 			while(seguir) {
 				String opciones = ":\n1. Agregar una carta a la colección del usuario" + 
@@ -108,6 +124,9 @@ public class Main {
 				System.out.println("\n¿Que desea realizar con las cartas?" + opciones);
 				try {
 					int op = teclado1.nextInt();
+					/**
+					 * Comenzar switch de opciones
+					 */
 	                switch (op){
 	                    case 1:{
 	                        System.out.println("Nombre de la carta");

@@ -8,6 +8,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * 
+ * @author Andres Say 
+ *@author Cesar Rodas
+ * @param <K>
+ * @param <V>
+ * devuelve un valor para evaluarlo en el main, inicializa alguna clase
+ */
 public class Factory<K,V> {
 	public Map<K,V> getType(int op) {
 		

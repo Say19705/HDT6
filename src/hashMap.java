@@ -76,9 +76,12 @@ public class hashMap implements Map{
 		return 0;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public Collection values() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
