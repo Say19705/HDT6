@@ -1,6 +1,6 @@
 /**
  * @author Andres Say Agosto 19705
- * @author Cesar Vinicio Rodas Alvarado
+ * @author Cesar Vinicio Rodas Alvarado 16776
  * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
  */
 //A
@@ -28,7 +28,7 @@ public class Main {
 		Map<String,String[]> theMap = null; 
         OpcionesCartas ops = new OpcionesCartas();
 		ArrayList<String[]> cartas =new ArrayList<String[]>();
-        ArrayList<String[]> cartasaux =  new ArrayList<String[]>(); 
+        ArrayList<String[]> cartasTmp =  new ArrayList<String[]>(); 
 		
 		Factory factory = new Factory();
 		//instanciar la otra clase que aun no esta hecha
@@ -97,12 +97,12 @@ public class Main {
 			//Opciones con las cartas
 			seguir = true;
 			while(seguir) {
-				String opciones = ":\n1. Agregar carta" + 
-								   "\n2. Mostrar el tipo de carta deseada" +
-								   "\n3. Mostrar las cartas" + 
-								   "\n4. Mostrar las cartas ordenadas" +
-								   "\n5. Mostrar todas las variantes de cartas" +
-								   "\n6. Mostrar todas las variantes de cartas ordenadas" +
+				String opciones = ":\n1. Agregar una carta a la colección del usuario" + 
+								   "\n2. Mostrar un tipo de carta especifica" +
+								   "\n3. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion" + 
+								   "\n4. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion ordenada por tipo" +
+								   "\n5. Mostrar el nombre y el tipo de todas las cartas existentes" +
+								   "\n6. Mostrar el nombre y el tipo de todas las cartas existentes, ordenadas por tipo" +
 								   "\n7. Salir del programa\n";
 
 				System.out.println("\n¿Que desea realizar con las cartas?" + opciones);
@@ -119,12 +119,12 @@ public class Main {
 	                        
 	                        String[] tomarcarta = theMap.get(tmp[0]);
 	                        
-	                        if (tomarcarta==null)
+	                        if (tomarcarta.length == 0)
 	                        	System.out.println("\nCarta invalida");
 	                        else {
 	                            cartas.add(tmp);
-	                            if (!cartasaux.contains(tmp)){
-	                                cartasaux.add(tmp);
+	                            if (!cartasTmp.contains(tmp)){
+	                            	cartasTmp.add(tmp);
 	                            }
 	                            System.out.println("\nListo! Carta agregada.");
 	                        }
@@ -136,16 +136,24 @@ public class Main {
 	                        System.out.println(ops.mostrarCarta(theMap,tmp));
 	                    }break;
 	                    case 3:{
-	                        System.out.println(ops.mostrarCartas(cartasaux,cartas));
+	                    	String totalCartas = ops.mostrarCartas(cartasTmp,cartas); 
+	                        System.out.println(totalCartas);
 	                    }break;
 	                    case 4:{
-	                        //TODO
+	                    	ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(cartasTmp);
+	                    	String lista = ops.mostrarCartas(cartasOrdenadas,cartas);
+	                        System.out.println(lista);
 	                    }break;
 	                    case 5:{
-	                        //TODO
+	                    	 ArrayList<String[]> el = ops.elementosMap(theMap);
+	                    	 String lista = ops.variantes(el);
+	                         System.out.println(lista);
 	                    }break;
 	                    case 6:{
-	                        //TODO
+	                    	ArrayList<String[]> el = ops.elementosMap(theMap);
+	                    	ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(el);
+	                    	String lista = ops.variantes(cartasOrdenadas);
+	                    	System.out.println(lista);
 	                    }break;
 	                    case 7:{
 	                        System.out.println("Fin, hasta luego.");

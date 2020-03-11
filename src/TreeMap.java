@@ -1,6 +1,6 @@
 /**
  * @author Andres Say Agosto 19705
- * @author Cesar Vinicio Rodas Alvarado
+ * @author Cesar Vinicio Rodas Alvarado 16776
  * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
  */
 import java.util.*; 
