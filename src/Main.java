@@ -130,7 +130,7 @@ public class Main {
 	                        }
 	                    }break;
 	                    case 2:{
-	                        System.out.println("\nIngrese el nombre de la carta a mostrar");
+	                        System.out.println("Ingrese el nombre de la carta a mostrar");
 	                        String carta = teclado2.nextLine();
 	                        String[] tmp = carta.split("['|']");
 	                        System.out.println(ops.mostrarCarta(theMap,tmp));
