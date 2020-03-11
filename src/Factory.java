@@ -3,25 +3,27 @@
  * @author Cesar Vinicio Rodas Alvarado
  * Extraido de: Duane A Bailey (2007) java structures in java for principled programmer edición raiz 7
  */
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
-public class Factory {
-public Map getType(int op) {
+import java.util.TreeMap;
+
+public class Factory<K,V> {
+	public Map<K,V> getType(int op) {
 		
 		if(op==1) {
-			return new hashMap();
+			return new HashMap<K,V>();
 		}
 		if(op == 2) {
 			
-			return new TreeMap();
+			return new TreeMap<K,V>();
 		}
 		if(op == 3) {
 			
-			return new LinkedHashMap();
+			return new LinkedHashMap<K,V>();
 		}
 		else
-			return new hashMap();
+			return new HashMap<K,V>();
 	}
 
 }
