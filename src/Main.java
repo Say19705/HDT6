@@ -103,7 +103,7 @@ public class Main {
 								   "\n4. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion ordenada por tipo" +
 								   "\n5. Mostrar el nombre y el tipo de todas las cartas existentes" +
 								   "\n6. Mostrar el nombre y el tipo de todas las cartas existentes, ordenadas por tipo" +
-								   "\n7. Salir del programa\n";
+								   "\n7. Salir del programa";
 
 				System.out.println("\n¿Que desea realizar con las cartas?" + opciones);
 				try {
@@ -120,7 +120,10 @@ public class Main {
 	                        String[] tomarcarta = theMap.get(tmp[0]);
 	                        
 	                        if (tomarcarta.length == 0)
+	                       	{
 	                        	System.out.println("Carta invalida");
+	                        	break;
+	                       	}
 	                        else {
 	                            cartas.add(tmp);
 	                            if (!cartasTmp.contains(tmp)){
