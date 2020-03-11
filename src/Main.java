@@ -110,7 +110,7 @@ public class Main {
 					int op = teclado1.nextInt();
 	                switch (op){
 	                    case 1:{
-	                        System.out.println("Nombre de la carta\n");
+	                        System.out.println("Nombre de la carta");
 	                        Scanner sc = new Scanner(System.in);
 	                        String carta = sc.nextLine();
 	                        
@@ -120,7 +120,7 @@ public class Main {
 	                        String[] tomarcarta = theMap.get(tmp[0]);
 	                        
 	                        if (tomarcarta.length == 0)
-	                        	System.out.println("\nCarta invalida");
+	                        	System.out.println("Carta invalida");
 	                        else {
 	                            cartas.add(tmp);
 	                            if (!cartasTmp.contains(tmp)){
