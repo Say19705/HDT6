@@ -111,80 +111,81 @@ public class Main {
 			 * Menu para interactuar con el usuario
 			 * 
 			 */
-			seguir = true;
+			 seguir = true;
 			while(seguir) {
-				String opciones = ":\n1. Agregar una carta a la colección del usuario" + 
-								   "\n2. Mostrar un tipo de carta especifica" +
-								   "\n3. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion" + 
-								   "\n4. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion ordenada por tipo" +
-								   "\n5. Mostrar el nombre y el tipo de todas las cartas existentes" +
-								   "\n6. Mostrar el nombre y el tipo de todas las cartas existentes, ordenadas por tipo" +
-								   "\n7. Salir del programa";
+				String opciones = ":\n1. Agregar una carta a la coleccion del usuario" + 
+						   "\n2. Mostrar un tipo de carta especifica" +
+						   "\n3. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion" + 
+						   "\n4. Mostrar el nombre, tipo y la cantidad de carta que tiene el usuario en su coleccion ordenada por tipo" +
+						   "\n5. Mostrar el nombre y el tipo de todas las cartas existentes" +
+						   "\n6. Mostrar el nombre y el tipo de todas las cartas existentes, ordenadas por tipo" +
+						   "\n7. Salir del programa";
 
-				System.out.println("\n¿Que desea realizar con las cartas?" + opciones);
 				try {
+					System.out.println("Que desea realizar con las cartas?" + opciones);
 					int op = teclado1.nextInt();
+
 					/**
 					 * Comenzar switch de opciones
 					 */
-	                switch (op){
-	                    case 1:{
-	                        System.out.println("Nombre de la carta");
-	                        Scanner sc = new Scanner(System.in);
-	                        String carta = sc.nextLine();
-	                        
-	                        String[] tmp = carta.split("['|']");
-	                        
-	                        
-	                        String[] tomarcarta = theMap.get(tmp[0]);
-	                        
-	                        if (tomarcarta.length == 0)
-	                       	{
-	                        	System.out.println("Carta invalida");
-	                        	break;
-	                       	}
-	                        else {
-	                            cartas.add(tmp);
-	                            if (!cartasTmp.contains(tmp)){
-	                            	cartasTmp.add(tmp);
-	                            }
-	                            System.out.println("\nListo! Carta agregada.");
-	                        }
-	                    }break;
-	                    case 2:{
-	                        System.out.println("Ingrese el nombre de la carta a mostrar");
-	                        String carta = teclado2.nextLine();
-	                        String[] tmp = carta.split("['|']");
-	                        System.out.println(ops.mostrarCarta(theMap,tmp));
-	                    }break;
-	                    case 3:{
-	                    	String totalCartas = ops.mostrarCartas(cartasTmp,cartas); 
-	                        System.out.println(totalCartas);
-	                    }break;
-	                    case 4:{
-	                    	ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(cartasTmp);
-	                    	String lista = ops.mostrarCartas(cartasOrdenadas,cartas);
-	                        System.out.println(lista);
-	                    }break;
-	                    case 5:{
-	                    	 ArrayList<String[]> el = ops.elementosMap(theMap);
-	                    	 String lista = ops.variantes(el);
-	                         System.out.println(lista);
-	                    }break;
-	                    case 6:{
-	                    	ArrayList<String[]> el = ops.elementosMap(theMap);
-	                    	ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(el);
-	                    	String lista = ops.variantes(cartasOrdenadas);
-	                    	System.out.println(lista);
-	                    }break;
-	                    case 7:{
-	                        System.out.println("Fin, hasta luego.");
-	                        seguir= false;
-	                    }break;
-	                    default: throw  new  Exception();
-	                }
-	            } catch (Exception e){
-	                System.out.println("Opción incorrecta");
+					if(op == 1) {
+						System.out.println("Nombre de la carta");
+                        Scanner sc = new Scanner(System.in);
+                        String carta = sc.nextLine();
+                        
+                        String[] tmp = carta.split("['|']");
+                        
+                        
+                        String[] tomarcarta = theMap.get(tmp[0]);
+                        
+                        if (tomarcarta.length == 0)
+                       	{
+                        	System.out.println("Carta invalida");
+                        	break;
+                       	}
+                        else {
+                            cartas.add(tmp);
+                            if (!cartasTmp.contains(tmp)){
+                            	cartasTmp.add(tmp);
+                            }
+                            System.out.println("\nListo! Carta agregada.");
+                        }
+					}
+					else if(op == 2) {
+						System.out.println("Ingrese el nombre de la carta a mostrar");
+                        String carta = teclado2.nextLine();
+                        String[] tmp = carta.split("['|']");
+                        System.out.println(ops.mostrarCarta(theMap,tmp));
+					}
+					else if(op == 3) {
+						String totalCartas = ops.mostrarCartas(cartasTmp,cartas); 
+                        System.out.println(totalCartas);
+					}
+					else if(op == 4) {
+						ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(cartasTmp);
+                    	String lista = ops.mostrarCartas(cartasOrdenadas,cartas);
+                        System.out.println(lista);
+					}
+					else if(op == 5) {
+						ArrayList<String[]> el = ops.elementosMap(theMap);
+						String lista = ops.variantes(el);
+                        System.out.println(lista);
+					}
+					else if(op == 6) {
+						ArrayList<String[]> el = ops.elementosMap(theMap);
+                    	ArrayList<String[]> cartasOrdenadas = ops.sort_selecction(el);
+                    	String lista = ops.variantes(cartasOrdenadas);
+                    	System.out.println(lista);
+					}
+					else if(op == 7) {
+						 System.out.println("Fin, hasta luego.");
+	                        seguir = false;
+					}
+	             }catch (Exception e){
+	            	 System.out.println("Opcion incorrecta");
+	            	 System.out.println("Intente otra vez");
+	            	 seguir = false;
+
 	            }
 			}
 		}		
